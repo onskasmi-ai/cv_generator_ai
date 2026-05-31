@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI CV Generator</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            margin:40px;
+            background:#f4f4f4;
+        }
+
+        .container{
+            display:flex;
+            gap:40px;
+        }
+
+        form{
+            width:40%;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        textarea,input,select{
+            width:100%;
+            margin-bottom:10px;
+            padding:10px;
+        }
+
+        .result{
+            width:60%;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        button{
+            padding:10px 20px;
+            background:blue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            margin-right:10px;
+            margin-top:10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>AI CV Generator</h1>
+
+<div class="container">
+
+<form method="POST">
+
+<input type="text" name="name" placeholder="Nom" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="text" name="phone" placeholder="Téléphone" required>
+
+<textarea name="skills" placeholder="Compétences"></textarea>
+
+<textarea name="studies" placeholder="Études"></textarea>
+
+<textarea name="experience" placeholder="Expériences"></textarea>
+
+<input type="text" name="job" placeholder="Poste désiré">
+
+<select name="language">
+
+    <option value="fr">Français</option>
+
+    <option value="en">English</option>
+
+</select>
+
+<button type="submit" name="action" value="cv">
+    Générer CV
+</button>
+
+<button type="submit" name="action" value="lettre">
+    Générer Lettre
+</button>
+
+</form>
+
+<div class="result">
+
+<h2>Résultat</h2>
+
+<pre>{{ result }}</pre>
+
+{% if result %}
+
+<a href="/download">
+    <button>Télécharger PDF</button>
+</a>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>
